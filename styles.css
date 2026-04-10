@@ -197,3 +197,15 @@ p {
     color: #ccc;
     line-height: 1.6;
 }
+
+.reelcontainer{
+    display: flex;
+}
+
+.codesnippet{
+    padding: 1rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--card);
+    border-radius: 1rem;
+    box-shadow:var(--cardHover) 0px 0px 1rem 0 inset;
+}
