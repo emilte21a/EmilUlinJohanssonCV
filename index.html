@@ -7,6 +7,7 @@
     <title>Emil Ulin Johansson</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="projectstyles.css">
     <script src="script.js" defer></script>
 </head>
 
@@ -14,14 +15,22 @@
     <!-- NAVBAR-->
     <nav class="navbar">
         <ul class="nav-list">
-            <li><a id="projectSection" href="#projects">Projects</a></li>
-            <li><a id="aboutSection" href="#about">About</a></li>
+            <!--  <li><a href="#home">Home</a></li>-->
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
         </ul>
-        <ul class = "nav-list">
+        <h1>
+            Emil Ulin Johansson
+        </h1>
+
+        <ul class="nav-list">
             <li><a href="https://www.linkedin.com/in/emilulinjohansson/"><img src="linkedin-brands-solid.png"
                         alt=""></a></li>
             <li><a href="https://github.com/emilte21a"><img src="github.png" alt=""></a></li>
-            <li><p>emilulinjohansson.arbete@gmail.com</p><button id="copyButton" type ="button"><img src="copy.png" alt="copy snippet"></button></li>
+            <li>
+                <p>emilulinjohansson.arbete@gmail.com</p><button id="copyButton" type="button"><img src="copy.png"
+                        alt="copy snippet"></button>
+            </li>
         </ul>
     </nav>
 
@@ -30,14 +39,15 @@
         <div id="projects" class="content">
             <h2>Projects</h2>
             <div class="projectscontainer" id="projectSectionContent">
+                <!-- PROJECT 1-->
                 <div class="projectdisplay">
                     <h1>2D Survival-Sandbox</h1>
                     <img src="sandbox.gif" alt="2D-Survival-Sandbox" class="project-image">
-                    <a href="https://github.com/emilte21a/EpicRaylibGame.git">Github Project</a>
+                    <a href="https://github.com/emilte21a/EpicRaylibGame.git">View on Github</a>
                     <p class="description">
                         This project was made using C# and a wrapper for the famous and originally
-                        C-based game-framework called <a href="https://www.raylib.com/">Raylib</a>. 
-                        It is a hobby project that I have worked on since june 2025. 
+                        C-based game-framework called <a href="https://www.raylib.com/">Raylib</a>.
+                        It is a hobby project that I have worked on since june 2025.
                     </p>
                     <h3>
                         Competencies
@@ -51,15 +61,16 @@
 
                     <a href="" class="readmorebutton"> Read more</a>
                 </div>
+                <!-- PROJECT 2-->
                 <div class="projectdisplay">
                     <h1>SDL & C++ 2D Game Engine</h1>
                     <img src="cprog.gif" alt="Project 1" class="project-image">
-                    <a href="https://github.com/emilte21a/GRUPP69_PROJECT.git">Github Project</a>
+                    <a href="https://github.com/emilte21a/GRUPP69_PROJECT.git">View on Github</a>
                     <p class="description">
                         This project was made using C++ and the low-level game-framework <a
                             href="https://wiki.libsdl.org/SDL3/FrontPage">SDL3</a>.
-                        It was made as part of a course in C and C++ that lasted for 2 months, 
-                        but the engine was developed from january-march 2026. 
+                        It was made as part of a course in C and C++ that lasted for 2 months,
+                        but the engine was developed from january-march 2026.
                     </p>
                     <h3>
                         Competencies
@@ -75,13 +86,14 @@
 
                     <a href="" class="readmorebutton"> Read more</a>
                 </div>
+                <!-- PROJECT 3-->
                 <div class="projectdisplay">
                     <h1>Battle for the Board</h1>
                     <img src="battlefortheboard.png" alt="BattleForTheBoard" class="project-image">
                     <a>Private Github Repository</a>
                     <p class="description">
                         This project was made using C# and Unity. It was a collaborative project where 6 people
-                        worked together to create a mobile video game for Google Play. 
+                        worked together to create a mobile video game for Google Play.
                     </p>
                     <h3>
                         Competencies
@@ -95,6 +107,27 @@
 
                     <a href="project3.html" class="readmorebutton"> Read more</a>
                 </div>
+                <!-- PROJECT 4-->
+                <div class="projectdisplay">
+                    <h1>Planet Red</h1>
+                    <img src="planetred.gif" alt="PlanetRed" class="project-image">
+                    <a href="https://github.com/ericpierrkarvan/SPM26_Grupp1.git">Github Project</a>
+                    <p class="description">
+                        This project was made using C++ and Unreal Engine. It was a collaborative project where 9 people
+                        worked together to create a couch-coop game.
+                    </p>
+                    <h3>
+                        Competencies
+                    </h3>
+                    <ul>
+                        <li>C++</li>
+                        <li>Component Based Architecture</li>
+                        <li>Github</li>
+                        <li>Unreal Engine</li>
+                    </ul>
+
+                    <a href="project4.html" class="readmorebutton"> Read more</a>
+                </div>
             </div>
         </div>
         <!-- ABOUT-->
@@ -107,29 +140,36 @@
                 <div>
                     <p>My name is Emil Ulin Johansson, and I am a game-design student at Stockholm University.
                         Previously,
-                        I studied game development at NTI gymnasiet Odenplan which has given me years of experience in
-                        many
-                        areas of game development. Primarily I have been programming in C# which has taught me many
-                        programming
-                        principles as well as design architectures.
+                        Before university, I studied Game Development at NTI Gymnasiet Odenplan, where I gained several
+                        years of
+                        experience across different areas of game development.
+                    </p>
+                    <p>
+                        My primary programming experience is in C#, which has given me a strong understanding of
+                        programming principles,
+                        software architecture and the technical foundations of game development. During my studies I
+                        have also developed
+                        an interest in the relationship between technology, game-design and player experience.
+                    </p>
+                    <p>
+                        Additionally, I have produced music as a hobby since 2019 both digitally and through live
+                        instruments.
+                        Music has always been a passion of mine which has led me to the importance of well-crafted sound
+                        design
+                        and atmosphere in games. I am especially interested in creating immersive soundscapes using
+                        music and sound
+                        design to strengthen a game's identity.
+
                     </p>
 
                     <p>
-                        Additionally, I have produced music as a hobby since 2019 both in real life and digitally. Music
-                        is
-                        something I have had passion for forever, and that is why I especially adore well designed
-                        soundscapes
-                        and video games. Therefore I ensure that both sound design, and music-production is of the best
-                        quality.
-                    </p>
-
-                    <p>
-                        Lägg till fler saker här
+                        I enjoy exploring the intersection between game design, programming, music and audio, and I
+                        strive to create
+                        experiences where these elements coincide to strengthen the player's experience.
                     </p>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </body>
 

@@ -6,72 +6,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="projectstyles.css">
+
     <title>Battle for the Board</title>
 </head>
 
 <body>
-
     <nav class="navbar">
         <ul class="nav-list">
-            <li> <a href="index.html">Home</a></li>
-
+            <li>
+                <a href="index.html">Home</a>
+            </li>
         </ul>
     </nav>
 
     <div class="container">
-        <div id="content" class="content">
-            <h2>Battle for the Board</h2>
-            <div class="reelcontainer">
+        <div class="content">
+            <header class="project-header">
+                <h1>Battle for the Board</h1>
 
                 <p class="description">
                     This project was created as part of a course called "Mobile Application Development",
-                    where me and 5 others were to create a mobile video-game. The course took place from mid-march 2025
+                    where me and 5 others were to create a mobile video-game. The course took place from mid-march
+                    2025
                     until june 2025. It was later released on Google Play.
                 </p>
 
-                <video width="720" height="405" controls>
-                    <source src="battlefortheboardreel.mp4" type="video/mp4">
-                </video>
+                <ul class="project-tags">
+                    <li>Mobile Development</li>
+                    <li>Game Development</li>
+                    <li>Unity</li>
+                    <li>Audio</li>
+                </ul>
 
-            </div>
 
-            <h2>My work</h2>
-            <p class="description">
-                The main task that I had during the project was to create a basic, but expandable sound- and music
-                manager.
+            </header>
 
-            </p>
-            
-            <h3>Code Snippet</h3>
-            <p class="codesnippet">
-                Console.Writeline("Hello World");
-            </p>
-            COMING SOON
-            
-            <!-- 
-            <h2> Audio Clips</h2>
-            <p class="description">
-                I made these sound effects using the Digital Audio Workstation <a href="https://www.image-line.com/">FL
-                    Studio</a>
-            </p>
 
-            <h3>Losesound.mp3</h3>
-            <Audio src="losesoundSFX.mp3" controls></Audio>
-            <p class="description">
-                This sound is played whenever the player has lost a fight-round against the enemy.
-            </p>
+            <section class="project-section">
+                <h2>Project Overview</h2>
 
-            <Audio src="winsoundSFX.mp3" controls></Audio>
-            <Audio src="newbackgroundmusicmaybe.mp3" controls> </Audio>
-            <Audio src="newfightmusic.mp3" controls> </Audio>
-            <Audio src="transitionsfx.mp3" controls> </Audio>
-            <Audio src="powerup.mp3" controls> </Audio>
+                <p class="description">
+                    This project was created as part of a course called "Mobile Application Development",
+                    where me and five others developed a mobile video game.
+                </p>
 
-            <h2> Challenges</h2>
-            <p class="description">
-                fy vad svårt det var
-            </p> -->
+                <p class="description">
+                    The course took place from mid-March 2025 until June 2025.
+                    The game was later released on Google Play.
+                </p>
 
+                <div class="project-media">
+                    <video controls>
+                        <source src="battlefortheboardreel.mp4" type="video/mp4">
+                        Your browser does not support the video element.
+                    </video>
+                </div>
+            </section>
+
+            <section class="project-section">
+                <h2>My work</h2>
+                <p class="description">
+                    My main responsibility during the project was creating a basic, but expandable, sound and music
+                    manager.
+                </p>
+
+                <h3>Code Snippet</h3>
+                <pre class="code-block"><code>Console.WriteLine("Hello World");</code></pre>
+            </section>
+
+            <section class="project-section">
+                <h2>Challenges</h2>
+
+                <p class="description">
+
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h2>Audio Clips</h2>
+
+                <p class="description">
+                    I made these sound effects using the Digital Audio Workstation <a
+                        href="https://www.image-line.com/">FL
+                        Studio</a>
+                </p>
+
+                <div class="audio-list">
+                    <div class="audio-item">
+                        <h3>losesound.mp3</h3>
+                        <Audio src="losesoundSFX.mp3" controls></Audio>
+                        <p class="description">
+                            This sound is played whenever the player has lost a fight-round against the enemy.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="audio-list">
+                    <div class="audio-item">
+                        <h3>winsound.mp3</h3>
+                        <Audio src="winsoundSFX.mp3" controls></Audio>
+                        <p class="description">
+                            This sound is played whenever the player has won a fight-round against the enemy.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="audio-list">
+                    <div class="audio-item">
+                        <h3>newbackgroundmusicmaybe.mp3</h3>
+                        <Audio src="newbackgroundmusicmaybe.mp3" controls></Audio>
+                        <p class="description">
+                            This music is played in the background during the chess-phase of the game.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="audio-list">
+                    <div class="audio-item">
+                        <h3>newfightmusic.mp3</h3>
+                        <Audio src="newfightmusic.mp3" controls></Audio>
+                        <p class="description">
+                            This music is played in the background during the fight-phase of the game.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="audio-list">
+                    <div class="audio-item">
+                        <h3>transitionsfx.mp3</h3>
+                        <Audio src="transitionsfx.mp3" controls></Audio>
+                        <p class="description">
+                            This sound is played whenever the game transitions from the chess-phase to the
+                            fight-phase.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="audio-list">
+                    <div class="audio-item">
+                        <h3>powerup.mp3</h3>
+                        <Audio src="powerup.mp3" controls></Audio>
+                        <p class="description">
+                            This sound is played whenever either the player, or the enemy picks up a powerup during
+                            the
+                            chess-phase.
+                        </p>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 
