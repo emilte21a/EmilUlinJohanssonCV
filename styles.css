@@ -18,6 +18,7 @@
     --cardHover: #2c3036;
     --text: #ffffff;
     --accent: #00aaff;
+    --mutedAccent: #00aaff3a;
     --navbarHeight: 100px;
 }
 
@@ -36,10 +37,12 @@ html {
 }
 
 body {
-    background: linear-gradient(0deg, #13171d 0%, #15171a 100%, #111214 100%);
+    background: linear-gradient(70deg, #13171d 0%, #283342 100%, #111214 100%);
     margin: 0;
     padding-top: var(--navbarHeight);
     color: var(--text);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 
 .content {
@@ -49,7 +52,7 @@ body {
     height: 100%;
     padding: 2%;
     color: var(--text);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
     border-bottom: 1px solid var(--cardHover);
 }
 
@@ -137,6 +140,11 @@ body {
     display: block;
 }
 
+.nav-list li a img:hover,
+.nav-list li button img:hover {
+    box-shadow: 0px 0px 10px 1px var(--accent);
+}
+
 .nav-list li button {
     padding: 1rem;
     border: none;
@@ -144,7 +152,6 @@ body {
 }
 
 .nav-list li button:hover {
-
     color: var(--accent);
 }
 
@@ -161,6 +168,7 @@ body {
     max-width: 1100px;
     margin: 0 auto;
     padding: 1rem;
+
 }
 
 h1 {
