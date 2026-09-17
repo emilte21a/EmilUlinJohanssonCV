@@ -114,6 +114,12 @@
     font-size: 0.8rem;
 }
 
+.projectdisplay li img {
+    width: 1rem;
+    height: 1rem;
+    margin-left: 0.3rem;
+}
+
 .projectscontainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
