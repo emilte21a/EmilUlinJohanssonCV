@@ -12,8 +12,24 @@
     }
 }
 
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 :root {
-    --bg: #1e1e1e;
+    --bg: #13171d;
+    --wave: #283342;
+
     --card: #1f2227;
     --cardHover: #2c3036;
     --text: #ffffff;
@@ -37,12 +53,43 @@ html {
 }
 
 body {
-    background: linear-gradient(70deg, #13171d 0%, #283342 100%, #111214 100%);
+    background: linear-gradient(135deg, var(--bg), var(--wave), var(--bg));
     margin: 0;
     padding-top: var(--navbarHeight);
     color: var(--text);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-size: 300% 300%;
+    animation: gradient 15s ease infinite;
+    z-index: 0;
+}
 
+.bg {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    isolation: isolate;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.bg-layer {
+    position: absolute;
+    inset: -12%;
+    background:
+        radial-gradient(circle at 20% 20%, var(--wave), transparent 30%),
+        linear-gradient(135deg, #101722, #1b24337e 50%, #0d132081);
+    background-size: cover;
+    background-position: center;
+    transform: translate3d(0, 0, 0) scale(1.12);
+    will-change: transform;
+    z-index: 0;
+}
+
+.navbar,
+.container,
+.content {
+    position: relative;
+    z-index: 1;
 }
 
 .content {
