@@ -14,24 +14,23 @@
 
 @keyframes gradient {
     0% {
-        background-position: 0% 50%;
+        background-position: 0% 0%;
     }
 
     50% {
-        background-position: 100% 50%;
+        background-position: 100% 100%;
     }
 
     100% {
-        background-position: 0% 50%;
+        background-position: 0% 0%;
     }
 }
 
 :root {
     --bg: #13171d;
-    --wave: #283342;
-
-    --card: #1f2227;
-    --cardHover: #2c3036;
+    --wave: #3d68a1;
+    --card: #262f3fb7;
+    --cardHover: #2f3a4d;
     --text: #ffffff;
     --accent: #00aaff;
     --mutedAccent: #00aaff3a;
@@ -58,8 +57,7 @@ body {
     padding-top: var(--navbarHeight);
     color: var(--text);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-size: 300% 300%;
-    animation: gradient 15s ease infinite;
+    
     z-index: 0;
 }
 
@@ -83,6 +81,8 @@ body {
     transform: translate3d(0, 0, 0) scale(1.12);
     will-change: transform;
     z-index: 0;
+    background-size: 300% 300%;
+    animation: gradient 15s ease infinite;
 }
 
 .navbar,
@@ -120,8 +120,8 @@ body {
     color: var(--text);
     z-index: 1000;
 
-    background: #15171acc;
     border-bottom: 2px solid var(--accent);
+    background: #15171acc;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 4px 20px #00aaff14;
