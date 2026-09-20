@@ -18,7 +18,7 @@
     }
 
     50% {
-        background-position: 100% 100%;
+        background-position: 20% 20%;
     }
 
     100% {
@@ -28,8 +28,9 @@
 
 :root {
     --bg: #13171d;
-    --wave: #3d68a1;
-    --card: #262f3fb7;
+    --wave: #304764;
+    --card: #2b323d;
+    --card2: #232a35b7;
     --cardHover: #2f3a4d;
     --text: #ffffff;
     --accent: #00aaff;
@@ -57,8 +58,9 @@ body {
     padding-top: var(--navbarHeight);
     color: var(--text);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    
+
     z-index: 0;
+    filter: contrast(120%);
 }
 
 .bg {
@@ -74,15 +76,44 @@ body {
     position: absolute;
     inset: -12%;
     background:
-        radial-gradient(circle at 20% 20%, var(--wave), transparent 30%),
-        linear-gradient(135deg, #101722, #1b24337e 50%, #0d132081);
+        radial-gradient(circle at 10% 10%, var(--wave), transparent 30%);
+
     background-size: cover;
     background-position: center;
     transform: translate3d(0, 0, 0) scale(1.12);
     will-change: transform;
     z-index: 0;
     background-size: 300% 300%;
-    animation: gradient 15s ease infinite;
+    animation: gradient 30s ease infinite;
+}
+
+.noise {
+   position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+
+    opacity: 0.08;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.15) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.15) 1px,
+            transparent 1px
+        );
+
+    background-size: 8px 8px;
+    
+    mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 80%
+    );
+
 }
 
 .navbar,
@@ -168,6 +199,8 @@ body {
 
 .nav-list li a:hover {
     color: var(--accent);
+    transition:
+        color 70ms ease-out;
 }
 
 .nav-list li a.active {
@@ -185,6 +218,8 @@ body {
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
     border-radius: 1rem;
     display: block;
+    transition:
+        box-shadow 70ms ease-out;
 }
 
 .nav-list li a img:hover,
