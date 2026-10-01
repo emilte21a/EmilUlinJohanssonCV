@@ -1,0 +1,71 @@
+.project-header .eyebrow {
+    margin: 0;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12rem;
+    font-size: 0.85rem;
+}
+
+.project-lead {
+    max-width: 60ch;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--text);
+}
+
+.project-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0 1.5rem;
+}
+
+.project-meta > div {
+    padding: 0.9rem 1rem;
+    background: linear-gradient(135deg, var(--card), var(--card2), var(--card));
+    border: 0.2px solid var(--card);
+    border-left: 3px solid var(--accent);
+    border-radius: 0.75rem;
+}
+
+.project-meta dt {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12rem;
+    color: #888;
+}
+
+.project-meta dd {
+    margin: 0.3rem 0 0;
+    font-weight: bold;
+}
+
+.project-header .hero-buttons { margin-top: 1.5rem; }
+
+.project-list {
+    max-width: 750px;
+    padding-left: 1.2rem;
+    line-height: 1.8;
+    color: #c5c5c5;
+}
+
+.project-list li::marker { color: var(--accent); }
+
+.code-block code { font-family: inherit; }
+
+.audio-item p { margin: 0 0 1rem; }
+
+.project-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 3rem 0;
+}
+
+.project-nav a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project-nav a:hover { color: var(--text); }

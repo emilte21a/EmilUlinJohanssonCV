@@ -23,3 +23,27 @@ if (bg && bgLayer) {
         bgLayer.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.12)`;
     });
 }
+
+const hero = document.querySelector('.hero');
+const navbar = document.querySelector('.navbar');
+
+if (hero) {
+    new IntersectionObserver(([entry]) => {
+        navbar.classList.toggle('show-brand', !entry.isIntersecting);
+    }, { rootMargin: '-120px 0px 0px 0px' }).observe(hero);
+}
+
+
+const cards = document.querySelectorAll('.projectdisplay');
+
+const cardObserver = new IntersectionObserver((entries, observer) => {
+    entries
+        .filter(entry => entry.isIntersecting)
+        .forEach((entry, i) => {
+            entry.target.style.setProperty('--delay', `${i * 0.15}s`);
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+        });
+}, { threshold: 0.15 });
+
+cards.forEach(card => cardObserver.observe(card));

@@ -1,14 +1,30 @@
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+:root {
+    --text-subtle: #888;
+    --card-hover: var(--cardHover);
+    --navbar-height: var(--navbarHeight);
+}
+
 .projectdisplay {
-     background: linear-gradient(135deg, var(--card), var(--card2), var(--card));
+    opacity: 0;
+    background: linear-gradient(135deg, var(--card), var(--card2), var(--card));
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid transparent;
+    border: 0.2px solid var(--card);
     border-radius: 1rem;
-    padding: 1.5rem;
-
-    gap: 1rem;
-
-    animation: fadeIn 0.6s ease forwards;
+    padding: 1.25rem;
+    gap: 1.1rem;
 
     display: flex;
     flex-direction: column;
@@ -19,7 +35,7 @@
         box-shadow 500ms ease-out,
         border-color 70ms ease-out;
 
-     box-shadow:  0px -10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px -10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .projectdisplay:hover {
@@ -31,62 +47,23 @@
     transition:
         transform 150ms ease-out,
         box-shadow 150ms ease-out,
-        background 150ms ease-out,
+        background 500ms ease-out,
         border-color 70ms ease-out;
 }
 
-.projectdisplay a {
-    color: var(--text);
-    
+.projectdisplay.in-view {
+    opacity: 1;
+    animation: cardIn 0.8s ease backwards;
+    animation-delay: var(--delay, 0s);
 }
 
-.projectdisplay a:hover {
-    color: var(--accent);
-}
+@media (prefers-reduced-motion: reduce) {
 
-.projectdisplay .readmorebutton {
-    margin-top: auto;
-    padding-top: 0.75rem;
-
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: bold;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.projectdisplay .readmorebutton:hover {
-    color: var(--text);
-}
-
-.projectdisplay>a:not(.readmorebutton) {
-    font-size: 0.9rem;
-    color: var(--accent);
-    text-decoration: none;
-    width: fit-content;
-}
-
-.projectdisplay>a:not(.readmorebutton):hover {
-    text-decoration: underline;
-}
-
-.projectdisplay h1 {
-    font-size: clamp(1.3rem, 2vw, 1.6rem);
-    line-height: 1.2;
-    margin: 0;
-    color: var(--text);
-    overflow-wrap: break-word;
-}
-
-.projectdisplay h3 {
-    margin: 0;
-    padding-top: 0.5rem;
-
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12rem;
-
-    color: #888;
+    .projectdisplay,
+    .projectdisplay.in-view {
+        opacity: 1;
+        animation: none;
+    }
 }
 
 .description,
@@ -129,17 +106,9 @@
 
 .projectscontainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
     gap: 2rem;
     align-items: stretch;
-}
-
-.project-image {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    border-radius: 0.75rem;
-    display: block;
 }
 
 .project-header {
@@ -176,23 +145,102 @@
 
 .aboutSectionContent {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: minmax(240px, 1fr) 1.6fr;
+    gap: 3rem;
+    align-items: start;
 }
 
-.aboutSectionContent div {
+.about-photo {
+    background: linear-gradient(135deg, var(--card), var(--card2), var(--card));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 0.2px solid var(--card);
+    border-radius: 1rem;
+    padding: 0.75rem;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: calc(var(--navbarHeight) + 1rem);
+    transition: transform 150ms ease-out, box-shadow 150ms ease-out, border-color 70ms ease-out;
+}
+
+.about-photo img {
+    width: 100%;
+    display: block;
+    border-radius: 0.75rem;
+}
+
+.about-text p {
+    max-width: 60ch;
+    margin: 0 0 1rem;
+}
+
+.about-lead {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: var(--text);
+}
+
+.about-lead span {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.about-text h3 {
+    margin: 2rem 0 0.75rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12rem;
+    color: var(--text-subtle);
+}
+
+.about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.about-tags li {
+    background: #00aaff1a;
+    border: 1px solid #00aaff4d;
+    padding: 0.4rem 0.7rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.about-tags li.primary {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: bold;
+}
+
+.fun-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.fact {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
     padding: 1rem;
-    width: 100%;
+    background: linear-gradient(135deg, var(--card), var(--card2), var(--card));
+    border: 0.2px solid var(--card);
+    border-radius: 1rem;
+    transition: transform 150ms ease-out, border-color 70ms ease-out;
 }
 
-.aboutSectionContent div img {
-    width: 100%;
+.fact p {
+    margin: 0;
+    font-size: 0.95rem;
 }
 
-#home header {
-    font-size: 5rem;
-    animation: fadeInLeft;
-    animation-duration: 1s;
+.fact-icon {
+    font-size: 1.5rem;
+    line-height: 1;
 }
 
 .project-tags {
@@ -227,7 +275,7 @@
     border: 1px solid var(--card-hover);
     border-radius: 1rem;
     color: var(--text);
-    font-family: 'Consolas', 'Courier New', monospace;
+    font-family: monospace;
     line-height: 1.6;
 }
 
@@ -284,4 +332,120 @@
     .project-section h2 {
         font-size: 1.6rem;
     }
+
+    .aboutSectionContent {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-photo {
+        position: static;
+        max-width: 320px;
+    }
+
+    .projectscontainer {
+        grid-template-columns: 1fr;
+    }
+}
+
+.project-thumb {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 0.75rem;
+}
+
+.project-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 400ms ease-out;
+}
+
+.projectdisplay:hover .project-thumb img {
+    transform: scale(1.05);
+}
+
+.project-date {
+    position: absolute;
+    left: 0;
+    bottom: 0.6rem;
+    padding: 0.3rem 0.7rem 0.3rem 0.55rem;
+    font: 600 0.7rem/1 'Consolas', 'Courier New', monospace;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+    color: var(--text);
+    background: #13171dd9;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 0.4rem 0.4rem 0;
+}
+
+.project-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+    padding: 0 0.25rem;
+}
+
+.project-title {
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 1.4;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.projectdisplay .description {
+    margin: 0;
+    max-width: none;
+    font-size: 1rem;
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: calc(4 * 1.55em);
+}
+
+.projectdisplay ul {
+    margin-top: auto;
+}
+
+.project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0.25rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.9rem;
+}
+
+.project-footer a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.project-footer a:hover {
+    color: var(--accent);
+}
+
+.project-footer .readmorebutton {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.project-footer .readmorebutton:hover {
+    color: var(--text);
+}
+
+.project-footer .private {
+    color: #888;
 }
