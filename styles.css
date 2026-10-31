@@ -380,7 +380,7 @@ p span {
 }
 
 .hero-image img {
-    width: min(100%, 340px);
+    width: min(100%, 680px);
     aspect-ratio: 1;
     object-fit: cover;
     border-radius: 0.75rem;
