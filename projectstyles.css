@@ -74,6 +74,9 @@
     color: #c5c5c5;
 }
 
+.project-section a{
+    color: var(--accent);
+}
 
 .projectdisplay ul {
     display: flex;

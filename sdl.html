@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="projectstyles.css">
     <link rel="stylesheet" href="projectpage.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 
@@ -61,7 +64,7 @@
                 </div>
                 <div>
                     <dt>Team</dt>
-                    <dd>1 people</dd>
+                    <dd>1 person</dd>
                 </div>
                 <div>
                     <dt>Time frame</dt>
@@ -92,19 +95,27 @@
         <section class="project-section">
             <div class="project-media">
                 <img src="cprog.gif" alt="gameplay">
-                <!-- or: <video src="project.mp4" controls muted loop></video> -->
+
             </div>
         </section>
 
         <section class="project-section">
             <h2>Overview</h2>
-            <p>pipi</p>
+            <p>A 2D engine developed in C++ on SDL3 for a C/C++ course, with an entity component system and manual memory
+                management. Made a simple shooter game that spawns enemies with a primitive "AI" that you can shoot
+                to earn points. 
+            </p>
         </section>
 
         <section class="project-section">
             <h2>My contribution</h2>
             <ul class="project-list">
-                <li>Game engine</li>
+                <li>Game Engine</li>
+                <li>Simple Sound Engine</li>
+                <li>AABB Collision-System</li>
+                <li>Simple Physics-System</li>
+                <li>Gameplay Programming</li>
+                <li>Art-Assets (Aseprite)</li>
 
             </ul>
         </section>
@@ -113,19 +124,79 @@
             <h2>Challenges & solutions</h2>
 
             <h3>The problem</h3>
-            <p>allt slutade fungera</p>
+            <p>I wanted to create a Unity-like component based architecture, in a language I was largely inexperienced
+                with.</p>
 
             <h3>How I solved it</h3>
-            <p>tänkte jävla mycket.</p>
+            <p>I took my time to research many of the corresponding things I was already familiar with in C# such as
+                templates. Since I
+                had created a similar project earlier, I knew how I would go about creating the foundation and the
+                architecture. I created
+                a gameobject-based structure since I wanted the same kind of freedom that I had in Unity.
+            </p>
 
             <pre class="code-block">
-<code> Console.Writeline("Hello World");
+<code class="language-cpp">class GameObject {
+    public:
+        GameObject(const GameObject &) = delete;
+        const GameObject &operator=(const GameObject &) = delete;
+
+        virtual ~GameObject() = default;
+        virtual void Start();
+        virtual void Update();
+        virtual void Draw(SDL_Renderer *ren);
+        const SDL_FRect &GetRect() const { return rect; }
+
+        virtual void OnEvent(const SDL_Event &) {}
+        virtual void OnCollision(GameObject &other) {}
+
+        template &lt;typename T, typename = std::enable_if_t&lt;std::is_base_of_v&lt;Component, T&gt;&gt;&gt;
+        T *GetComponent()
+        {
+            for (const auto &c : components)
+            {
+                if (auto ptr = dynamic_cast<T *>(c.get()))
+                    return ptr;
+            }
+            return nullptr;
+        }
+
+        template &lt;typename T, typename = std::enable_if_t&lt;std::is_base_of_v&lt;Component, T&gt;&gt;&gt;
+        void AddComponent()
+        {
+            auto comp = std::make_unique<T>();
+            comp->SetOwner(this);
+            components.push_back(std::move(comp));
+        }
+
+        Vector2 &GetPosition() { return position; }
+        void SetPosition(const Vector2 &newPos) { position = newPos; }
+        void SetTag(std::string newTag) { tag = newTag; }
+        void MarkForDestruction() { shouldBeDestroyed = true; }
+        bool ShouldBeDestroyed() const { return shouldBeDestroyed; }
+        std::string GetTag() const { return tag; }
+
+    protected:
+        GameObject() = default;
+        SDL_FRect rect = {0, 0, constants::unitSize, constants::unitSize};
+        std::vector<std::unique_ptr<Component>> components;
+        Vector2 position = {0, 0};
+        std::string tag = "GameObject";
+        bool shouldBeDestroyed = false;
+
+    private:
+        friend std::ostream &operator<<(std::ostream &os, GameObject &obj);
+};
 </code></pre>
         </section>
 
         <section class="project-section">
             <h2>What I learned</h2>
-            <p>va ska man säga</p>
+            <p>It was the first time I've ever developed using C++. I had previous experience with graphics-frameworks,
+                such as my <a href="sandbox.html">2D-Sandbox</a>
+                , but this was entirely different. I had to learn memory-management, smart-pointers, constructors and destructors, 
+                simple bit-manipulation and more. It was a great learning exercise.
+            </p>
         </section>
 
         <nav class="project-nav">

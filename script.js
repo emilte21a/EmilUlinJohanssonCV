@@ -1,3 +1,6 @@
+document.addEventListener('DOMContentLoaded', () => hljs.highlightAll());
+
+
 const copyButton = document.getElementById("copyButton");
 
 if (copyButton) {
