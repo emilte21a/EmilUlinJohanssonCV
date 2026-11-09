@@ -96,24 +96,35 @@
 
         <section class="project-section">
             <h2>Overview</h2>
-            <p>A 2D engine/game hobby project created using the <a href="https://www.raylib.com/">Raylib</a> framework.
-            It was originally meant to just be a simple terrain generator based on perlin-noise, that eventually transformed into a Terraria-esque "game".
+            <p>A 2D game hobby project created using the <a href="https://www.raylib.com/">Raylib</a> framework.
+
+                The project originally started as a simple terrain generator using Perlin noise, but gradually evolved
+                into a Terraria-inspired sandbox game. Drawing inspiration from games such as Terraria, Starbound, Core
+                Keeper and Minecraft, the goal was to experiment with procedural world generation and develop the
+                foundations of a larger 2D game.
             </p>
-            <p>I primarily worked on it during the summer of 2025. </p>
+            <p>
+
+                This is an ongoing personal project that I primarily worked on during the summer of 2025, alongside my
+                studies.
+            </p>
         </section>
 
         <section class="project-section">
             <h2>My contribution</h2>
             <ul class="project-list">
-                <li>Game engine</li>
-                <li>Gameplay Programming</li>
-                <li>Art-Assets (Aseprite)</li>
+                <li>Perlin-Based Terrain Generation</li>
+                <li>Chunk-based World Generation and Rendering</li>
+                <li>Tile Management and World Interaction</li>
+                <li>Entity-Component Architecture</li>
+                <li>Memory Management and Performance Optimizations</li>
                 <li>Inventory System</li>
                 <li>Lighting-Engine</li>
                 <li>Particle System</li>
-                <li>Perlin-Based Terrain Generation</li>
                 <li>AABB Collision-System</li>
                 <li>Simple Physics-System</li>
+                <li>Gameplay Programming</li>
+                <li>Art-Assets (Aseprite)</li>
             </ul>
         </section>
 
@@ -124,24 +135,30 @@
             <p>Poor performance the longer the player plays the game.</p>
 
             <h3>How I solved it</h3>
-            <p>I Saved the changed chunks in json format, which allowed me to generate the world on the fly instead of saving the whole world in a matrix at all times. 
-                Instead of saving the whole world in a 2D-Matrix, with IDs correlated to their distincitive block-IDs, the saved chunks are loaded in during runtime.   
-                This greatly improved the performance of the game since the world is infinitely generating in all directions.
+            <p>I Saved the changed chunks in json format, which allowed me to generate the world on the fly instead of
+                saving the whole world in a matrix at all times.
+                Instead of saving the whole world in a 2D-Matrix, with IDs correlated to their distincitive block-IDs,
+                the saved chunks are loaded in during runtime.
+                This greatly improved the performance of the game since the world is infinitely generating in all
+                directions.
             </p>
 
-        <section class="project-section">
-            <h2>What I learned</h2>
-            <p>Building my own game engine taught me how much work a good foundation requires. There were times I got stuck because something wasn't
-                implemented correctly from the start, and I had to return to code that I had written months earlier. The further I got in development, 
-                the more my progress got halted. It taught me to plan the core structure of an engine ahead, but also that prematurely optimizing everything 
-                can also leave you stuck in a deadlock.
-            </p>
-        </section>
+            <section class="project-section">
+                <h2>What I learned</h2>
+                <p>Building my own game engine taught me how much work a good foundation requires. There were times I
+                    got stuck because something wasn't
+                    implemented correctly from the start, and I had to return to code that I had written months earlier.
+                    The further I got in development,
+                    the more my progress got halted. It taught me to plan the core structure of an engine ahead, but
+                    also that prematurely optimizing everything
+                    can also leave you stuck in a deadlock.
+                </p>
+            </section>
 
-        <nav class="project-nav">
-            <a href="index.html#projects">← Back to Projects</a>
-            <a href="sdl.html">Next project →</a>
-        </nav>
+            <nav class="project-nav">
+                <a href="index.html#projects">← Back to Projects</a>
+                <a href="sdl.html">Next project →</a>
+            </nav>
 
     </main>
 </body>

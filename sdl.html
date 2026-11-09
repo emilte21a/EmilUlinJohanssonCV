@@ -60,7 +60,7 @@
             <dl class="project-meta">
                 <div>
                     <dt>Role</dt>
-                    <dd>Gameplay programmer</dd>
+                    <dd>Engine & Gameplay Programmer</dd>
                 </div>
                 <div>
                     <dt>Team</dt>
@@ -79,10 +79,12 @@
             <ul class="project-tags">
                 <li>C++</li>
                 <li>SDL3</li>
-                <li>Composition Based Architecture</li>
-                <li>Entity Component System</li>
-                <li>Low Level Programming</li>
+                <li>Game Engine Development</li>
+                <li>Component-Based Architecture</li>
+                <li>Smart Pointers</li>
                 <li>Memory Management</li>
+                <li>Collision Detection</li>
+                <li>Physics</li>
             </ul>
 
             <div class="hero-buttons">
@@ -101,22 +103,34 @@
 
         <section class="project-section">
             <h2>Overview</h2>
-            <p>A 2D engine developed in C++ on SDL3 for a C/C++ course, with an entity component system and manual memory
-                management. Made a simple shooter game that spawns enemies with a primitive "AI" that you can shoot
-                to earn points. 
+            <p>
+                A custom 2D game engine developed in C++ using the SDL3 framework as part of a C/C++ programming course.
+
+                The engine was built around a component-based architecture, inspired by Unity's GameObject and Component
+                system. It features manual memory management using modern C++ techniques, alongside custom collision
+                detection, physics and audio systems.
+            </p>
+            <p>
+                To demonstrate the engine's capabilities, I developed a simple top-down shooter where enemies spawn with
+                basic AI behaviour and pursue the player. Players can eliminate enemies to earn points.
+
+                The project was an opportunity to explore lower-level game development and understand the underlying
+                systems that make up a game engine.
             </p>
         </section>
 
         <section class="project-section">
             <h2>My contribution</h2>
             <ul class="project-list">
-                <li>Game Engine</li>
-                <li>Simple Sound Engine</li>
-                <li>AABB Collision-System</li>
-                <li>Simple Physics-System</li>
-                <li>Gameplay Programming</li>
-                <li>Art-Assets (Aseprite)</li>
-
+                <li>Gameobject and Component Based-Architecture</li>
+                <li>Component-Management Using C++ Templates and Smart Pointers</li>
+                <li>Developed Object Lifecycle Functionality including Start, Update and Draw</li>
+                <li>Implemented AABB Collision Detection</li>
+                <li>Basic Physics System</li>
+                <li>Simple Audio Management System</li>
+                <li>Input and Event Handling Through SDL3</li>
+                <li>Developed the Shooter Gameplay and Enemy behaviour</li>
+                <li>Created the Game's Visual Assets using Aseprite</li>
             </ul>
         </section>
 
@@ -124,15 +138,31 @@
             <h2>Challenges & solutions</h2>
 
             <h3>The problem</h3>
-            <p>I wanted to create a Unity-like component based architecture, in a language I was largely inexperienced
-                with.</p>
+            <p>
+                One of the biggest challenges was recreating the flexibility of Unity's component-based architecture in
+                C++. Coming from a background primarily working with C#, I was relatively inexperienced with C++ and had
+                to rethink how I approached object management and memory ownership.
+
+                I wanted GameObjects to be able to hold different types of components that could be retrieved and
+                managed at runtime, without having to create a separate class for every possible combination of
+                functionality.
+            </p>
 
             <h3>How I solved it</h3>
-            <p>I took my time to research many of the corresponding things I was already familiar with in C# such as
-                templates. Since I
-                had created a similar project earlier, I knew how I would go about creating the foundation and the
-                architecture. I created
-                a gameobject-based structure since I wanted the same kind of freedom that I had in Unity.
+            <p>
+                I implemented a GameObject-based architecture where each object owns a collection of components through
+                <code class="language-cpp">
+                    std::unique_ptr.
+                </code>
+
+                I also used C++ templates and dynamic_cast to allow components to be retrieved by type. This allowed me
+                to create reusable functionality that could be attached to different GameObjects without tightly
+                coupling their implementations.
+
+                Using smart pointers also helped establish clear ownership of components and ensured that their memory
+                was automatically managed when their owning GameObject was destroyed.
+
+                This gave me a flexible foundation for building gameplay systems on top of the engine.
             </p>
 
             <pre class="code-block">
@@ -194,13 +224,14 @@
             <h2>What I learned</h2>
             <p>It was the first time I've ever developed using C++. I had previous experience with graphics-frameworks,
                 such as my <a href="sandbox.html">2D-Sandbox</a>
-                , but this was entirely different. I had to learn memory-management, smart-pointers, constructors and destructors, 
+                , but this was entirely different. I had to learn memory-management, smart-pointers, constructors and
+                destructors,
                 simple bit-manipulation and more. It was a great learning exercise.
             </p>
         </section>
 
         <nav class="project-nav">
-            <a href="sandbox.gif">← Previous project</a>
+            <a href="sandbox.html">← Previous project</a>
             <a href="battle.html">Next project →</a>
         </nav>
 
